@@ -1,0 +1,163 @@
+V2.0
+--
+1.Rename project to InMethodTools - 2015/09/24
+2.add new BackEndTagLet class - 2015/10/12
+3.fix null string bug in class ResultSetToJson - 2015/11/26
+4. add HexAndStringConverter - 2016/01/22 and modify 2016/01/26
+   
+V1.9(gradle Version)
+--
+1.new build environment (Eclipse LUNA) - 2015/1/26
+2.build system using gradle (v2.2.1) - 2015/1/26
+3.all file encode with UTF-8  - 2015/1/26
+ 
+
+06/06/2014(v1.8b1)
+--
+1.new Class WDecimal
+  divide two decimal
+
+02/13/2014(v1.7b1)
+--
+1. new method "getDatabaseIP" in JDBCConnection
+
+07/07/2011(v1.6p11)
+--
+1. new Class ADUserValue
+2. new method "getUserInfo" in class ADAuth
+
+07/07/2011(v1.6p10)
+--
+1. new class Gmail
+
+04/28/2011(v1.6p9)
+--
+1. new class converPDF
+   pdf to pdf with disabled tool bar
+
+11/23/2010(v1.6p8)
+--
+1. new mssql connection class
+
+
+11/17/2010(v1.6p7)
+--
+1. new mssql connection class
+
+05/19/2010(v1.6p6)
+--
+1. mysql connection add port parameter
+
+03/19/2010(v1.6p5)
+--
+1. new class ADAuth (used for M$ AD server Authentication)
+
+03/11/2010(v1.6p4)
+--
+1. new class SQLTools (used for replacing SQLCommand)
+
+02/26/2010(v1.6p3)
+--
+1. new Method fileCopy2File in class FileTool
+
+02/25/2010(v1.6p2)
+--
+1. add swing tools "JTableConvertToExcel"
+2. move util.ImagePanel to swing.ImagePanle
+
+02/24/2010(v1.6p1)
+--
+1. deprecated SQLCommand(Connection .. )
+2. add Swing Tools "QueryTableModel"
+
+02/04/2010(v1.6)
+--
+1. re-write old rowset , use new java 6 package
+
+01/16/2010(v1.5p3)
+--
+1. new class ImagePanel
+
+11/17/2009(v1.5p2)
+--
+1. new db connection (DerbyFilesDb)
+
+11/06/2009(v1.5p1)
+--
+1. update os info (ExeShellCmd.java)
+
+10/09/2009(v1.5)
+--
+1. new db connection (SqlLite)
+
+06/20/2006(v1.4p1)
+--
+1. fix output encode error in ServerProcessor
+2. add method doRawCmd in SocketCmd
+
+03/16/2006(v1.4)
+--
+1. enahce utility Arabic class
+2. change Log default attribute , default write nothing
+3. change license to LGPL
+
+08/17/2005(v1.3p1)
+--
+1. fix:
+   Attribute "ConnectionKind" in JDBCConnection occurred lack of memory.
+
+08/05/2005(v1.3)
+--
+1. fix:
+    get the same NumberGen in a short time when using NumberGen.
+
+12/20/2004(v1.3b2)
+--
+1. mysql jdbc driver changed to new version
+
+11/22/2004(v1.3b1)
+--
+1. change license to GPL
+
+11/16/2004(v1.2b4)
+--
+1. add sub class in JDBCConnection for clear all unsatified connection
+
+11/15/2004(v1.2b4)
+--
+1. add clearClosedConnection in JDBCConnection
+
+11/04/2004(v1.2b4)
+--
+1. add windows XP shell cmd (ExeShellCmd.java)
+
+07/21/2004(v1.2b3)
+--
+1. new method about 3DES encode and decode in class Crypt.java
+
+07/10/2004(v1.2b2)
+--
+1. Rewrite class "SystemConfig"
+   SystemConfig read resource bundle
+2. new Class "Reflection.java" used for get Object dynamically
+
+07/07/2004(v1.2b1)
+--
+1. New Method added in Class "Authentication.java"
+   getAllUsers
+
+09/06/2004(v1.1b3)
+--
+1. add method DESEncode,DESDecode in class "Crypt.java"
+
+01/06/2004(v1.1b2)
+--
+1. fix bug (Arabic.java)
+
+04/05/2004(v1.1b1)
+--
+1. Refactoring Arabica.java
+
+26/04/2004(v1.0)
+--
+1. first version
