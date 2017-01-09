@@ -240,17 +240,28 @@ public class FileTool{
     }
     return false;
   }
-/* test
-  public static void main(String[] aa){
-    String a[] = new String[5];
-    a[0] = new String("D:\\william\\hlmt\\news");
-    a[1] = new String ("c:\\temp\\a");
-    a[2] = new String("BIG5");
-    a[3] = new String ("UTF-8");
-    a[4] = new String ("DepartmentInfo.java");
-    main2(a);
+  
+  /**
+   * get file extension name.
+   * @param file
+   * @return
+   */
+  public static String getFileExtension(File file) {
+      String fileName = file.getName();
+      return getFileExtension(fileName);
   }
-*/
+
+  /**
+   * get file extension name.
+   * @param file
+   * @return
+   */
+  public static String getFileExtension(String fileName) {
+      if(fileName.lastIndexOf(".") != -1 && fileName.lastIndexOf(".") != 0)
+      return fileName.substring(fileName.lastIndexOf(".")+1);
+      else return "";
+  }
+  
   /**
    * main entry.
    * <pre>

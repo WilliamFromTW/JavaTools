@@ -24,7 +24,7 @@ public class HTMLConverter {
 
         // Special characters
         htmlCode['\t'] = "";
-        htmlCode['\n'] = "<br>\n"; // 換行
+        htmlCode['\n'] = "<br>"; // 換行
         htmlCode['\"'] = "&quot;"; // "
         htmlCode['&'] = "&amp;"; // &
         htmlCode['<'] = "&lt;"; // <

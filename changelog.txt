@@ -1,11 +1,17 @@
-V2.0
+v2.01
+--
+1. add static method getFileExtension in class FileTool - 2016/11/17
+2. HTMLConverter.encode linefeed convert to "<br>\n" change to "<br>" - 2016/11/25
+3. add SystemConfig class to read java resource key value - 2017/01/09
+
+v2.0
 --
 1.Rename project to InMethodTools - 2015/09/24
 2.add new BackEndTagLet class - 2015/10/12
 3.fix null string bug in class ResultSetToJson - 2015/11/26
-4. add HexAndStringConverter - 2016/01/22 and modify 2016/01/26
+4.add HexAndStringConverter - 2016/01/22 and modify 2016/01/26
    
-V1.9(gradle Version)
+v1.9(gradle Version)
 --
 1.new build environment (Eclipse LUNA) - 2015/1/26
 2.build system using gradle (v2.2.1) - 2015/1/26
