@@ -1,9 +1,17 @@
+v2.02
+--
+new TimeUtil.java to get NTP date - 2017/02/10
+** using apache commons net 3.5 
+
+
 v2.01
 --
 1. add static method getFileExtension in class FileTool - 2016/11/17
 2. HTMLConverter.encode linefeed convert to "<br>\n" change to "<br>" - 2016/11/25
 3. add SystemConfig class to read java resource key value - 2017/01/09
-
+4. refactory ExeShellCmd - 2017/01/12
+   return more message
+   
 v2.0
 --
 1.Rename project to InMethodTools - 2015/09/24

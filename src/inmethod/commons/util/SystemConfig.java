@@ -10,7 +10,6 @@ import java.util.Enumeration;
  * </pre>
  */
 public class SystemConfig{
-  private static final Locale DEFAULT_LOCALE = Locale.TRADITIONAL_CHINESE;
 
   private String sConfigFile ;
   private Locale aLocale;
@@ -20,7 +19,7 @@ public class SystemConfig{
    * config file be import like class
    */
   public SystemConfig(String sConfigFile){
-    this(sConfigFile,DEFAULT_LOCALE);
+    this(sConfigFile,Locale.TAIWAN);
   }
 
   public SystemConfig(String sConfigFile,Locale aLocale){
@@ -54,5 +53,9 @@ public class SystemConfig{
    */
   public Locale getConfigLocale(){
     return aResourceBundle.getLocale();
+  }
+  
+  public static void main(String ar[]){
+	System.out.println("asdf="+(new SystemConfig("test",Locale.TAIWAN)).getConfigLocale());  
   }
 }

@@ -10,22 +10,31 @@ import java.io.*;
 class StreamGobbler extends Thread
 {
     InputStream is;
-    String type;
+    String sName;
     String sInput;
     private static String sEncode = "BIG5";
-    StreamGobbler(InputStream is, String type){
+    private boolean bStop = false;
+    private StreamGobbler(){};
+    
+    public StreamGobbler(InputStream is, String type){
       this(is,type,sEncode);
     }
-    StreamGobbler(InputStream is, String type,String sEncode)
+    
+    public StreamGobbler(InputStream is, String sName,String sEncode)
     {
         this.is = is;
-        this.type = type;
+        this.sName = sName;
         this.sInput = "";
         StreamGobbler.sEncode = sEncode;
     }
     public String getInput(){
       return sInput;
     }
+    
+    public void setStopFlag(boolean sBoolean){
+    	bStop = sBoolean;
+    }
+    
     public void run()
     {
         try
@@ -33,9 +42,10 @@ class StreamGobbler extends Thread
             InputStreamReader isr = new InputStreamReader(is,sEncode);
             BufferedReader br = new BufferedReader(isr);
             String line=null;
-            while ( (line = br.readLine()) != null){
-                sInput += line;
+            while ( (line = br.readLine()) != null && !bStop){
+                sInput = sInput +"\r\n"+line;
             }
+            System.out.println("stop thread name="+sName);
         } catch (IOException ioe){
           ioe.printStackTrace();
         }
