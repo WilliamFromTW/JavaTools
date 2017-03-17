@@ -1,8 +1,8 @@
 v2.02
 --
-new TimeUtil.java to get NTP date - 2017/02/10
-** using apache commons net 3.5 
-
+1.new TimeUtil.java to get NTP date - 2017/02/10
+  ** using apache commons net 3.5 
+2.mail tools default charset utf-8 - 2017/03/17
 
 v2.01
 --

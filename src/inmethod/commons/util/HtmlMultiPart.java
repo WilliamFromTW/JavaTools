@@ -20,10 +20,10 @@ public class HtmlMultiPart {
   private String sDefaultCharset = null;
 
   /**
-   * default is big5 encoded
+   * default is utf-8 encoded
    */
   public HtmlMultiPart() {
-    this("big5");
+    this("utf-8");
   }
 
   /**

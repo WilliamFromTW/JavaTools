@@ -7,7 +7,8 @@ import javax.mail.internet.*;
 import javax.activation.*;
 
 /**
- * 寄信的類別之一.
+ * mail body content.
+ * default charset is utf-8
  * MessageBodyPart, use for text with attachment.
  * @author william chen
  * @see inmethod.commons.util.MailTool
@@ -20,10 +21,10 @@ public class TextMultiPart {
   private String sDefaultCharset = null;
 
   /**
-   * default is big5 encoded
+   * default is utf-8 encoded
    */
   public TextMultiPart() {
-    this("big5");
+    this("utf-8");
   }
 
   /**

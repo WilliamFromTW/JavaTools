@@ -7,7 +7,8 @@ import javax.mail.internet.*;
 import javax.activation.*;
 
 /**
- * 寄信的類別之一.
+ * send mail package.
+ * default charset is utf-8
  * 
  * @author william
  * @see inmethod.commons.util.TextMultiPart
@@ -15,7 +16,7 @@ import javax.activation.*;
  */
 public class MailTool {
 
-	private static String sEncode = "big5";
+	private static String sEncode = "utf-8";
 
 	public static Session buildSession(String sMailServer) {
 		if (sMailServer == null)
