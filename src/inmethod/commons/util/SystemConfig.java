@@ -1,10 +1,14 @@
 package inmethod.commons.util;
 import java.util.Locale;
+import java.util.Properties;
 import java.util.ResourceBundle;
+import java.io.File;
+import java.io.IOException;
 import java.util.Enumeration;
 
 /**
  * read system properties  *.properties (java style).
+ * properties is on class base package. 
  * <pre>
  *   default locale is TRADITIONAL CHINESE
  * </pre>
@@ -15,6 +19,8 @@ public class SystemConfig{
   private Locale aLocale;
   private ResourceBundle aResourceBundle;
 
+  private SystemConfig() {}
+  
   /**
    * config file be import like class
    */
@@ -25,7 +31,8 @@ public class SystemConfig{
   public SystemConfig(String sConfigFile,Locale aLocale){
     this.sConfigFile = sConfigFile;
     this.aLocale = aLocale;
-    aResourceBundle = ResourceBundle.getBundle(this.sConfigFile,this.aLocale);
+
+      aResourceBundle = ResourceBundle.getBundle(this.sConfigFile,this.aLocale);
  
   }
 
