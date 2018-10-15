@@ -1,7 +1,9 @@
-v2.03-SNAPSHOT
+v2.03 - 2018-10-15 
 --
 1. new class "AppDataConfig" that return app data path that had write permission - 2017-12-05
-
+2. HtmlMultiPart can change attach file name - 2018-01-05
+3. new class "ByteUtil" - 2018-07-31
+4. use java mail 1.6 or above
 
 v2.02
 --

@@ -4,7 +4,7 @@ compileJava.options.encoding = 'UTF-8'
 javadoc.options.encoding = 'UTF-8'  
 
 archivesBaseName = 'InMethodTools'
-version = '2.03-SNAPSHOT'
+version = '2.03'
 
 
 repositories {
@@ -14,7 +14,6 @@ repositories {
 
 sourceSets {
     main {
-        // where does the Java source code live?
         java {
             srcDir 'src'
         }

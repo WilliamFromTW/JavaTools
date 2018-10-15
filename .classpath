@@ -4,9 +4,9 @@
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="lib/iText-5.0.6.jar"/>
 	<classpathentry kind="lib" path="lib/iTextAsian.jar"/>
-	<classpathentry kind="lib" path="lib/javax.mail.jar"/>
 	<classpathentry kind="lib" path="lib/gson-2.3.1.jar"/>
 	<classpathentry kind="lib" path="lib/tools.jar"/>
 	<classpathentry kind="lib" path="lib/commons-net-3.5.jar"/>
+	<classpathentry kind="lib" path="lib/javax.mail-1.6.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

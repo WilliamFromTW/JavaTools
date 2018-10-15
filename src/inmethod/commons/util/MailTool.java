@@ -112,6 +112,7 @@ public class MailTool {
 			// set the Date: header
 			msg.setSentDate(new Date());
 
+
 			// send the message
 			Transport.send(msg);
 			return true;
@@ -155,6 +156,13 @@ public class MailTool {
 	 *            </pre>
 	 */
 	public static void main(String[] a) {
+		/**
+		 *  此兩行修正outlook無法顯示正常郵件名稱的問題, 必須在MultiPart進行編碼之前就設定, 否則無用
+		 */
+		System.setProperty("mail.mime.encodeparameters", "false"); 
+		System.setProperty("mail.mime.encodefilename", "true");
+		
+		
 		// to
 		Vector to = new Vector();
 		to.add("william.chen@hlmt.com.tw");
@@ -165,13 +173,16 @@ public class MailTool {
 		// subject
 		String subject = "你好";
 		// from
-		String from = "陳俊安<mis@hlmt.com.tw>";
+		String from = "IT<it@hlmt.com.tw>";
 		// session
 		Session session = MailTool.buildSession("10.192.130.145");
 		// html with images
 		HtmlMultiPart aHMP = new HtmlMultiPart();
 		aHMP.setContent("<h1>中文</h1><img src=\"cid:mememe\">");
 		// aHMP.buildContentImage("c:/mozilla.gif","mememe");
+        File file = new File("/tmp/內部網站新增公告-[園區水塔清洗_107.5.27(日)停水].pdf");
+	    aHMP.buildAttachment(file,"內部網站新增公告-[園區水塔清洗_107.5.27(日)停水].pdf");
+		//System.setProperty("mail.mime.encodeparameters", "false");
 		MailTool.mailSend(session, to, cc, bcc, from, subject, aHMP.getMultipart(), null, null);
 		// text with attachment
 		TextMultiPart aTMP = new TextMultiPart();

@@ -67,17 +67,25 @@ public class HtmlMultiPart {
     }
   }
   public void buildAttachment(File file){
-    try {
-  	  MimeBodyPart aBP = new MimeBodyPart();
-      aBP.attachFile( file);
-      attachmentBodyPart.add(aBP);
-	} catch (IOException ee){
-	
-	} catch(MessagingException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+	  buildAttachment(file,null);
   }
+  
+  public void buildAttachment(File file,String sFileName){
+	    try {
+	  	  MimeBodyPart aBP = new MimeBodyPart();
+	      aBP.attachFile( file);
+	      if(sFileName!=null && !sFileName.trim().equals("")) {
+	    	  aBP.setFileName( MimeUtility.encodeText(sFileName,sDefaultCharset,"B") );
+	      } 
+	      attachmentBodyPart.add(aBP);
+		} catch (IOException ee){
+		
+		} catch(MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	  }
+  
   /**
    *
    * @return get multipart
