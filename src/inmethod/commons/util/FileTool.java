@@ -8,6 +8,15 @@ import java.util.*;
  */
 public class FileTool{
 
+  public static String getFileName(String sFileName) {
+	  String sReturn = sFileName;
+	  int lastPath = sFileName.lastIndexOf(File.separator);
+	  if (lastPath!=-1){
+		  sReturn = sFileName.substring(lastPath+1);
+	  }
+	  return sReturn;
+  }
+  
   public static void fileCopy2File(File sourceFile, File destDir) throws Exception {
     try{
       InputStream in = new FileInputStream(sourceFile);
