@@ -1,3 +1,9 @@
+v2.04
+--
+1. new class "JsonUtil" instead of class ResultSetToJson and ResultSetToJson is @deprecated  - 2019-06-10
+
+  
+
 v2.03 - 2018-10-15 
 --
 1. new class "AppDataConfig" that return app data path that had write permission - 2017-12-05
