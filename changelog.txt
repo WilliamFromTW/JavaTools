@@ -1,7 +1,7 @@
 v2.04
 --
 1. new class "JsonUtil" instead of class ResultSetToJson and ResultSetToJson is @deprecated  - 2019-06-10
-
+2. new class "DateUtil" - 2021/06/08
   
 
 v2.03 - 2018-10-15 
