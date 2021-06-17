@@ -3,6 +3,7 @@ package inmethod.commons.util;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -12,8 +13,8 @@ public class DateUtil {
 	// Add your own format here.
 	private static List<SimpleDateFormat> dateFormats = new ArrayList<SimpleDateFormat>() {
 	  {
-	    add(new SimpleDateFormat("yyyy-mm-dd"));
-	    add(new SimpleDateFormat("yyyy/mm/dd"));
+	    add(new SimpleDateFormat("yyyy-MM-dd"));
+	    add(new SimpleDateFormat("yyyy/MM/dd"));
 		add(new SimpleDateFormat("M/dd/yyyy"));
 		add(new SimpleDateFormat("dd.M.yyyy"));
 		add(new SimpleDateFormat("M/dd/yyyy hh:mm:ss a"));
@@ -39,7 +40,13 @@ public class DateUtil {
 		for (SimpleDateFormat format : dateFormats) {
 			try {
 				format.setLenient(false);
+				
 				date = format.parse(input);
+	//			System.out.println("convertToDate input="+input);
+						//Calendar cal = Calendar.getInstance();
+						// cal.setTime(date);
+					//		System.out.println("convertToDate result="+cal.getTime());
+					//		System.out.println("convertToDate result2="+date);
 			} catch (ParseException e) {
 				//Shhh.. try other formats
 			}
