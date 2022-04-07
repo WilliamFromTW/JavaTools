@@ -13,6 +13,7 @@
 	<classpathentry kind="lib" path="lib/commons-net-3.5.jar"/>
 	<classpathentry kind="lib" path="lib/javax.mail-1.6.0.jar"/>
 	<classpathentry kind="lib" path="lib/activation-1.1.jar"/>
-	<classpathentry kind="lib" path="lib/jasperreports-6.7.0.jar"/>
+	<classpathentry kind="lib" path="lib/jasperreports-6.19.1.jar"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-8.0.28.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
