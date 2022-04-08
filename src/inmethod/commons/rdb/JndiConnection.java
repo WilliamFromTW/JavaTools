@@ -1,6 +1,5 @@
 package inmethod.commons.rdb;
 
-import javax.rmi.PortableRemoteObject;
 import javax.naming.*;
 import javax.sql.DataSource;
 import java.sql.*;

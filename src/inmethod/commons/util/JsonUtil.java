@@ -5,17 +5,28 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+
+import inmethod.commons.rdb.DataSet;
 
 public class JsonUtil {
 
-	public static final JsonArray ResultSetToJsonArray(ResultSet rs) {
-		return ResultSetToJsonArray(rs, false);
+	
+	public static final JsonObject converToJsonObject(String sColumnName,String sVallue) {
+		JsonObject aReturn = new JsonObject();
+		aReturn.addProperty(sColumnName, sVallue);
+		return aReturn;
 	}
 
+	public static final JsonArray ResultSetToJsonArray(ResultSet rs) {
+		return ResultSetToJsonArray(rs,false);
+	}
+	
 	public static final JsonArray ResultSetToJsonArray(ResultSet rs, boolean bFormated) {
 		JsonObject element = null;
 		JsonArray ja = new JsonArray();
+
 		ResultSetMetaData rsmd = null;
 		String columnName, columnValue = null;
 		try {
@@ -23,7 +34,9 @@ public class JsonUtil {
 			while (rs.next()) {
 				element = new JsonObject();
 				for (int i = 0; i < rsmd.getColumnCount(); i++) {
-					columnName = rsmd.getColumnName(i + 1);
+					//columnName = rsmd.getColumnName(i + 1);
+					columnName = rsmd.getColumnLabel(i + 1);
+					//System.out.println("col name="+columnName+",lable name="+ rsmd.getColumnLabel( i + 1));
 					columnValue = rs.getString(columnName);
 					if (columnValue == null)
 						columnValue = "";
@@ -31,6 +44,7 @@ public class JsonUtil {
 						try {
 							element.addProperty(getFormattedName(columnName), columnValue);
 						} catch (Exception e) {
+							e.printStackTrace();
 							element.addProperty(columnName, columnValue);
 						}
 					else
@@ -69,7 +83,10 @@ public class JsonUtil {
 				boolean bTempTheSame = true;
 				for (int i = 0; i < rsmd.getColumnCount(); i++) {
 
-					columnName = rsmd.getColumnName(i + 1);
+					//columnName = rsmd.getColumnName(i + 1);
+					columnName = rsmd.getColumnLabel(i + 1);
+
+					//System.out.println("col name="+columnName+",lable name="+ rsmd.getColumnLabel( i + 1));
 					columnValue = rs.getString(columnName);
 					if (columnValue == null)
 						columnValue = "";
@@ -89,6 +106,7 @@ public class JsonUtil {
 						try {
 							element.addProperty(getFormattedName(columnName), columnValue);
 						} catch (Exception e) {
+							e.printStackTrace();
 							element.addProperty(columnName, columnValue);
 						}
 					else
