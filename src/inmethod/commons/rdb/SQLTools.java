@@ -1,9 +1,6 @@
 package inmethod.commons.rdb;
 import java.sql.*;
 import java.util.*;
-import javax.sql.RowSet;
-import javax.sql.rowset.*;
-import com.sun.rowset.*;
 /**
  * 若要下sql指令請透過此類別執行.
  * <pre>
