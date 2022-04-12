@@ -180,8 +180,8 @@ public class MailTool {
 		HtmlMultiPart aHMP = new HtmlMultiPart();
 		aHMP.setContent("<h1>中文</h1><img src=\"cid:mememe\">");
 		// aHMP.buildContentImage("c:/mozilla.gif","mememe");
-        File file = new File("/tmp/內部網站新增公告-[園區水塔清洗_107.5.27(日)停水].pdf");
-	    aHMP.buildAttachment(file,"內部網站新增公告-[園區水塔清洗_107.5.27(日)停水].pdf");
+        File file = new File("/opt/1111.pdf");
+	    aHMP.buildAttachment(file,"1111.pdf");
 		//System.setProperty("mail.mime.encodeparameters", "false");
 		MailTool.mailSend(session, to, cc, bcc, from, subject, aHMP.getMultipart(), null, null);
 		// text with attachment
