@@ -3,7 +3,10 @@ v2.04
 1. new class "JsonUtil" instead of class ResultSetToJson and ResultSetToJson is @deprecated  - 2019-06-10
 2. new class "DateUtil" - 2021/06/08
 3. new class "MariadbConnection"with mariadb jdbc driver - 2022/04/07  
-
+4. lib update - 2022/04/15 
+   javax mail from 1.6.0 to 1.6.2
+   javax activate from 1.1.0 to 1.2.0
+   
 v2.03 - 2018-10-15 
 --
 1. new class "AppDataConfig" that return app data path that had write permission - 2017-12-05

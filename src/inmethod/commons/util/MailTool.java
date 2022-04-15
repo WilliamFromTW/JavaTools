@@ -4,7 +4,6 @@ import java.util.*;
 import java.io.*;
 import javax.mail.*;
 import javax.mail.internet.*;
-import javax.activation.*;
 
 /**
  * send mail package.
