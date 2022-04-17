@@ -79,7 +79,7 @@ public class HTMLConverter {
    */
   public static String nl2br(String nl_string){
     try{
-      return StringConverter.replace(nl_string,"\n","<br>");
+      return nl_string.replace("\n", "").replace("\r", "<br>");
     }catch(Exception ex){
       return nl_string;
     }

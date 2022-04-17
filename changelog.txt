@@ -6,6 +6,7 @@ v2.04
 4. lib update - 2022/04/15 
    javax mail from 1.6.0 to 1.6.2
    javax activate from 1.1.0 to 1.2.0
+5. fix HTMLConverter nl2br error - 2022/04/17  
    
 v2.03 - 2018-10-15 
 --
