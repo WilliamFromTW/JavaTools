@@ -25,11 +25,11 @@ public class ResultSetToJson {
 
 	
 	public static final JsonObject ResultSetToJsonObject(ResultSet rs) {
-		return JsonUtil.ResultSetToJsonObject(rs,false);
+		return JsonUtil.ResultSetToJsonObjectSkipTheSameColValue(rs,false);
 	}
 	
 	public static final JsonObject ResultSetToJsonObject(ResultSet rs,boolean bFormated) {
-		return JsonUtil.ResultSetToJsonObject(rs,bFormated);
+		return JsonUtil.ResultSetToJsonObjectSkipTheSameColValue(rs,bFormated);
 	}
 
 	public static final String ResultSetToJsonArrayString(ResultSet rs,boolean bFormated) {

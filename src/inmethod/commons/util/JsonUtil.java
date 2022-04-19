@@ -23,6 +23,7 @@ public class JsonUtil {
 		return ResultSetToJsonArray(rs,false);
 	}
 	
+	
 	public static final JsonArray ResultSetToJsonArray(ResultSet rs, boolean bFormated) {
 		JsonObject element = null;
 		JsonArray ja = new JsonArray();
@@ -58,17 +59,18 @@ public class JsonUtil {
 		return ja;
 	}
 
-	public static final JsonObject ResultSetToJsonObject(ResultSet rs) {
-		return ResultSetToJsonObject(rs, false);
-	}
 
-	public static final JsonObject ResultSetToJsonObject(ResultSet rs, boolean bFormated) {
-		JsonObject element = null;
+	public static final JsonArray ResultSetToJsonArraySkipTheSameColValue(ResultSet rs) {
+		return ResultSetToJsonArraySkipTheSameColValue(rs,false);
+	}
+	
+	public static final JsonArray ResultSetToJsonArraySkipTheSameColValue(ResultSet rs, boolean bFormated) {
+			JsonObject element = null;
 		JsonArray ja = new JsonArray();
-		JsonObject jo = new JsonObject();
 		ResultSetMetaData rsmd = null;
 		String columnName, columnValue = null;
 		try {
+			
 			rsmd = rs.getMetaData();
 			String[] sCompareString = new String[rsmd.getColumnCount()];
 			boolean bFirst = true;
@@ -98,7 +100,6 @@ public class JsonUtil {
 					if (bTheSame)
 						columnValue = "";
 					else {
-						// System.out.println("columnValue"+columnValue);
 						columnValue = HTMLConverter.nl2br(columnValue);
 					}
 					bTheSame = false;
@@ -114,8 +115,22 @@ public class JsonUtil {
 				}
 				ja.add(element);
 			}
-			jo.add("Data", ja);
 		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return ja;
+	}	
+	
+	public static final JsonObject ResultSetToJsonObjectSkipTheSameColValue(ResultSet rs) {
+		return ResultSetToJsonObjectSkipTheSameColValue(rs, false);
+	}
+
+	public static final JsonObject ResultSetToJsonObjectSkipTheSameColValue(ResultSet rs, boolean bFormated) {
+	
+		JsonObject jo = new JsonObject();
+		try {
+			jo.add("Data", ResultSetToJsonArraySkipTheSameColValue(rs,bFormated));
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return jo;
@@ -130,11 +145,11 @@ public class JsonUtil {
 	}
 
 	public static final String ResultSetToJsonString(ResultSet rs, boolean bFormated) {
-		return ResultSetToJsonObject(rs, bFormated).toString();
+		return ResultSetToJsonObjectSkipTheSameColValue(rs, bFormated).toString();
 	}
 
 	public static final String ResultSetToJsonString(ResultSet rs) {
-		return ResultSetToJsonObject(rs).toString();
+		return ResultSetToJsonObjectSkipTheSameColValue(rs).toString();
 	}
 
 	/**
