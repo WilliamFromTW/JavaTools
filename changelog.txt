@@ -8,6 +8,7 @@ v2.04
    javax activate from 1.1.0 to 1.2.0
 5. fix HTMLConverter nl2br error - 2022/04/17  
 6.JsonUtil refactoring - 2022/04/17
+7.DateUtil get formated String - 2022/04/26
    
 v2.03 - 2018-10-15 
 --

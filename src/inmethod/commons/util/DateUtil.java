@@ -3,7 +3,6 @@ package inmethod.commons.util;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -12,8 +11,14 @@ public class DateUtil {
 	// List of all date formats that we want to parse.
 	// Add your own format here.
 	private static List<SimpleDateFormat> dateFormats = new ArrayList<SimpleDateFormat>() {
-	  {
-	    add(new SimpleDateFormat("yyyy-MM-dd"));
+	  /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+	{
+        add(new SimpleDateFormat("yyyy-MM-dd"));
+	    add(new SimpleDateFormat("yyyyMMdd"));
 	    add(new SimpleDateFormat("yyyy/MM/dd"));
 		add(new SimpleDateFormat("M/dd/yyyy"));
 		add(new SimpleDateFormat("dd.M.yyyy"));
@@ -24,6 +29,12 @@ public class DateUtil {
 	  }
 	};
 
+	public static String getDateStringWithFormat(String sDateFormats) {
+	    SimpleDateFormat formatter = new SimpleDateFormat(sDateFormats);  
+	    Date date = new Date();  
+	    return formatter.format(date);  		
+	}
+	
 	/**
 	 * Convert String with various formats into java.util.Date
 	 * 
