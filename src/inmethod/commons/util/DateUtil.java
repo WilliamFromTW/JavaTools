@@ -18,7 +18,6 @@ public class DateUtil {
 
 	{
         add(new SimpleDateFormat("yyyy-MM-dd"));
-	    add(new SimpleDateFormat("yyyyMMdd"));
 	    add(new SimpleDateFormat("yyyy/MM/dd"));
 		add(new SimpleDateFormat("M/dd/yyyy"));
 		add(new SimpleDateFormat("dd.M.yyyy"));
