@@ -1,4 +1,4 @@
-v2.04
+v2.04 - 20221118
 --
 1. new class "JsonUtil" instead of class ResultSetToJson and ResultSetToJson is @deprecated  - 2019-06-10
 2. new class "DateUtil" - 2021/06/08
@@ -9,7 +9,10 @@ v2.04
 5. fix HTMLConverter nl2br error - 2022/04/17  
 6.JsonUtil refactoring - 2022/04/17
 7.DateUtil get formated String - 2022/04/26
+8. add ChineseCalendar - 2022/11/18
+   https://www.itread01.com/article/1464915547.html
    
+    
 v2.03 - 2018-10-15 
 --
 1. new class "AppDataConfig" that return app data path that had write permission - 2017-12-05
