@@ -952,9 +952,15 @@ public final class ChineseCalendar extends GregorianCalendar {
   lFestival.put("1208","臘八節"); 
  } 
  public static  void main(String a[]) {
-	 ChineseCalendar aCC = new ChineseCalendar(Calendar.getInstance() );
-	 System.out.println( aCC.getChineseDateString());
-	 if(  aCC.getChineseTerm()!=null )
-	 System.out.println(aCC.getChineseTerm());
+	 Calendar aC = Calendar.getInstance();
+	 aC.set(Calendar.YEAR,2022);
+	 aC.set(Calendar.MONTH,10);
+	 aC.set(Calendar.DAY_OF_MONTH,7);
+	 ChineseCalendar aCC = new ChineseCalendar(aC );
+	 String sChineseTerm = "";
+		 if(  aCC.getChineseTerm() !=null  ){
+			 sChineseTerm = ",今日為二十四節氣的\""+aCC.getChineseTerm()+"\"("+aCC.getChineseDateString()+")";
+		 }
+    System.out.println(  sChineseTerm );
 }
 }
