@@ -894,7 +894,7 @@ public final class ChineseCalendar extends GregorianCalendar {
    0xad, 0x08, 0x6a, 0x44, 0xda, 0x04, 0x74, 0x05, 0xb0, 0x25, 0x54,
    0x03 };
 
- private String getChineseTerm() {
+ public String getChineseTerm() {
   if (get(Calendar.DATE) == get(CHINESE_SECTIONAL_TERM)) {
    return sectionalTermNames[get(Calendar.MONTH)];
   } else if (get(Calendar.DATE) == get(CHINESE_PRINCIPLE_TERM)) {
@@ -936,7 +936,6 @@ public final class ChineseCalendar extends GregorianCalendar {
  static {
   sFestival.put("0101","元旦"); 
   sFestival.put("0214","情人節"); 
-  sFestival.put("0308","婦女節"); 
   sFestival.put("0312","植樹節"); 
   sFestival.put("0401","愚人節"); 
   sFestival.put("0501","勞動節"); 
@@ -955,6 +954,7 @@ public final class ChineseCalendar extends GregorianCalendar {
  public static  void main(String a[]) {
 	 ChineseCalendar aCC = new ChineseCalendar(Calendar.getInstance() );
 	 System.out.println( aCC.getChineseDateString());
+	 if(  aCC.getChineseTerm()!=null )
 	 System.out.println(aCC.getChineseTerm());
 }
 }
