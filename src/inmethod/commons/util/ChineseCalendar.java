@@ -931,16 +931,19 @@ public final class ChineseCalendar extends GregorianCalendar {
 
  //公曆節日
  private static HashMap<String,String> sFestival =new HashMap<String,String>();
- // 農曆介入
+ // 農曆節日
  private static HashMap<String,String> lFestival =new HashMap<String,String>(); 
+ 
  static {
   sFestival.put("0101","元旦"); 
   sFestival.put("0214","情人節"); 
-  sFestival.put("0312","植樹節"); 
+  sFestival.put("0314","白色情人節");
+  sFestival.put("0331","世界備份日");  
+  //sFestival.put("0312","植樹節"); 
   sFestival.put("0401","愚人節"); 
-  sFestival.put("0501","勞動節"); 
-  sFestival.put("1031","萬聖節"); 
-  sFestival.put("1112","孫中山誕辰"); 
+  //sFestival.put("0501","勞動節"); 
+  //sFestival.put("1031","萬聖節"); 
+  //sFestival.put("1112","孫中山誕辰"); 
   sFestival.put("1225","聖誕節");  
 
   lFestival.put("0101","春節"); 
@@ -949,18 +952,25 @@ public final class ChineseCalendar extends GregorianCalendar {
   lFestival.put("0707","七夕");
   lFestival.put("0815","中秋節"); 
   lFestival.put("0909","重陽節"); 
-  lFestival.put("1208","臘八節"); 
+  lFestival.put("1208","臘八(吃碗八寶粥暖暖胃吧)"); 
  } 
+ 
  public static  void main(String a[]) {
 	 Calendar aC = Calendar.getInstance();
 	 aC.set(Calendar.YEAR,2022);
-	 aC.set(Calendar.MONTH,10);
-	 aC.set(Calendar.DAY_OF_MONTH,7);
+	 aC.set(Calendar.MONTH,11);
+	 aC.set(Calendar.DAY_OF_MONTH,26);
 	 ChineseCalendar aCC = new ChineseCalendar(aC );
 	 String sChineseTerm = "";
 		 if(  aCC.getChineseTerm() !=null  ){
 			 sChineseTerm = ",今日為二十四節氣的\""+aCC.getChineseTerm()+"\"("+aCC.getChineseDateString()+")";
+		 }else 	 if(  aCC.getLunarFestival() !=null  ){
+			 sChineseTerm = ",今日為"+aCC.getLunarFestival()+"("+aCC.getChineseDateString()+")";
+		 }else if(aCC.getSolarFestival()!=null) {
+			 sChineseTerm = ",今日為"+aCC.getSolarFestival();
 		 }
+		 
+
     System.out.println(  sChineseTerm );
 }
 }
