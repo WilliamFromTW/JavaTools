@@ -903,7 +903,8 @@ public final class ChineseCalendar extends GregorianCalendar {
    return null;
  }
  // add by skywang
- private String getLunarFestival() {
+ // modified by william
+ public  String getLunarFestival() {
   int day = get(CHINESE_DATE);
   int month = get(CHINESE_MONTH);
   String sToday = day < 10 ? "0" + day:"" + day; 
@@ -911,7 +912,8 @@ public final class ChineseCalendar extends GregorianCalendar {
 
   return lFestival.get(sMonth+sToday);  
  }
- private String getSolarFestival() {
+ 
+ public  String getSolarFestival() {
   int day = get(Calendar.DATE); 
   int month = get(Calendar.MONTH); 
   String sToday = day < 10 ? "0" + day:"" + day; 
@@ -919,6 +921,7 @@ public final class ChineseCalendar extends GregorianCalendar {
 
   return sFestival.get(sMonth+sToday);
  }
+ 
  private String getFestivalOrTermOrDate() {
   String ret;
   if ((ret = getSolarFestival()) != null)
@@ -959,11 +962,11 @@ public final class ChineseCalendar extends GregorianCalendar {
 	 Calendar aC = Calendar.getInstance();
 	 aC.set(Calendar.YEAR,2022);
 	 aC.set(Calendar.MONTH,11);
-	 aC.set(Calendar.DAY_OF_MONTH,26);
+	 aC.set(Calendar.DAY_OF_MONTH,22);
 	 ChineseCalendar aCC = new ChineseCalendar(aC );
 	 String sChineseTerm = "";
 		 if(  aCC.getChineseTerm() !=null  ){
-			 sChineseTerm = ",今日為二十四節氣的\""+aCC.getChineseTerm()+"\"("+aCC.getChineseDateString()+")";
+			 sChineseTerm = ",今日為二十四節氣中的\""+aCC.getChineseTerm()+"\"("+aCC.getChineseDateString()+")";
 		 }else 	 if(  aCC.getLunarFestival() !=null  ){
 			 sChineseTerm = ",今日為"+aCC.getLunarFestival()+"("+aCC.getChineseDateString()+")";
 		 }else if(aCC.getSolarFestival()!=null) {
