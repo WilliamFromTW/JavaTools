@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@ page import="inmethod.commons.util.Log" %>
+<%@ page import="inmethod_custom.Log" %>
 <%
   // debug mode
   String sDebugMode = request.getParameter("DebugMode");
