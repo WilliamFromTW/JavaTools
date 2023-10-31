@@ -1,13 +1,13 @@
 apply plugin: 'java'
 compileJava {
-    sourceCompatibility = '1.8'
-    targetCompatibility = '1.8'
+    sourceCompatibility = '11'
+    targetCompatibility = '11'
 }
 compileJava.options.encoding = 'UTF-8'
 javadoc.options.encoding = 'UTF-8'  
 
 archivesBaseName = 'InMethodTools'
-version = '2.04-20221230'
+version = '2.04-20231230'
 
 
 repositories {
