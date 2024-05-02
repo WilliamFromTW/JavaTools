@@ -185,8 +185,8 @@ public class SQLTools {
          return iReturnCode;
       }catch(Exception err){
         err.printStackTrace();
-        System.out.println("insert fail!  statement = " + sSql + "\n" + err.getMessage());
-        throw new Exception("insert fail");
+//        System.out.println("insert fail!  statement = " + sSql + "\n" + err.getMessage());
+        throw new Exception("insert fail. err msg="+err.getMessage());
       }
    }
 

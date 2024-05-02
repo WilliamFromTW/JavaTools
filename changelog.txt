@@ -1,4 +1,4 @@
-v2.04 - 20231031
+v2.04 - 20240430
 --
 1. new class "JsonUtil" instead of class ResultSetToJson and ResultSetToJson is @deprecated  - 2019-06-10
 2. new class "DateUtil" - 2021/06/08
@@ -12,6 +12,7 @@ v2.04 - 20231031
 8. add ChineseCalendar - 2022/11/18
    https://www.itread01.com/article/1464915547.html
 9. add AES enCrypt/deCrypt - 2023/10/31   
+10. throw SQLTools insert error message - 2024/04/30 
    
     
 v2.03 - 2018-10-15 
