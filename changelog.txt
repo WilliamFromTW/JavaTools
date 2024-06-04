@@ -1,3 +1,8 @@
+v2.04 - 20240601
+--
+1. MysqlConnection class for name changed 
+2. new JDBCConnection :  AccessConnection
+
 v2.04 - 20240430
 --
 1. new class "JsonUtil" instead of class ResultSetToJson and ResultSetToJson is @deprecated  - 2019-06-10

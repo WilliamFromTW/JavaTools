@@ -42,8 +42,7 @@ public class MysqlConnection extends JDBCConnection{
    * @param aNumberGen user defined NumberGen
    */
   public MysqlConnection(String sHost,String sUID,String sPWD,String sDB,NumberGen aNumberGen,String sPort){
-//      this.sClassForName = "org.gjt.mm.mysql.Driver";
-      this.sClassForName = "com.mysql.jdbc.Driver";
+      this.sClassForName = "com.mysql.cj.jdbc.Driver";
       this.sURL = new String("jdbc:mysql://"+sHost+":"+sPort+"/"+sDB+"?user="+sUID+"&password="+sPWD);
       this.sUID = new String(sUID);
       this.sPWD = new String(sPWD);
@@ -95,7 +94,7 @@ public class MysqlConnection extends JDBCConnection{
    * @param aNumberGen user defined NumberGen
    */
   public MysqlConnection(String sHost,String sUID,String sPWD,String sDB,String sCharSet,NumberGen aNumberGen,String sPort){
-      this.sClassForName = "com.mysql.jdbc.Driver";
+      this.sClassForName = "com.mysql.cj.jdbc.Driver";
       aProp = new Properties();
       aProp.put("characterEncoding", sCharSet);
       aProp.put("useUnicode", "TRUE");
