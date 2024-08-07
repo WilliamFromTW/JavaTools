@@ -1,7 +1,8 @@
-v2.04 - 20240601
+v2.04
 --
-1. MysqlConnection class for name changed 
-2. new JDBCConnection :  AccessConnection
+1. MysqlConnection class for name changed  - 20240601 
+2. new JDBCConnection :  AccessConnection - 20240601
+3. new PostgresConnection class - 20240807
 
 v2.04 - 20240430
 --

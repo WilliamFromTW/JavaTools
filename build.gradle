@@ -7,7 +7,7 @@ compileJava.options.encoding = 'UTF-8'
 javadoc.options.encoding = 'UTF-8'  
 
 archivesBaseName = 'InMethodTools'
-version = '2.04-20240601'
+version = '2.04-20240807'
 
 
 repositories {
