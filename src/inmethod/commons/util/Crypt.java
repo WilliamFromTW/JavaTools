@@ -2,9 +2,12 @@ package inmethod.commons.util;
 
 import javax.crypto.*;
 import javax.crypto.spec.*;
+
+import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.util.Base64;
 import java.util.Base64.*;
+import org.bouncycastle.jce.provider.*;
 
 /**
  * 將字串以"MD5"或是"SHA"編碼.
@@ -12,8 +15,41 @@ import java.util.Base64.*;
  * @author william chen
  */
 public class Crypt {
-
+	
+	private  static String sIV = "kafeiou ";//8倍數
+	
+	// java 只有padding7,用bouncycastle加上padding7
+	static { 
+		if(Security.getProvider("BC")!=null)     Security.removeProvider("BC");
+         Security.addProvider(new BouncyCastleProvider());
+		
+	}
+	
+	/**
+	 * 8 bytes
+	 * @param sKey
+	 */
+	public static void setIV(String sKey) {
+		sIV = sKey;
+	}
+	
+	public static String getIV() {
+		return sIV;
+	}
+	
 	public static void main(String a[]) {
+		// 3DES 
+		try {
+			
+			System.out.println(Crypt.Encrypt3DesCbcPKCS7Padding("123456781234567812345678","11dd1asdfasdf11111"));
+			System.out.println(Crypt.Decrypt3DesCbcPKCS7Padding("123456781234567812345678","ozkDNizwFNxPxTGTmyLnu3EwJIigp7pj"));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+	}
+	
+	public static void main3(String a[]) {
 		try {
 
 			String s3DES = "DESede";
@@ -39,13 +75,6 @@ public class Crypt {
 			System.out.println("解密之後的資料 = " + sData2);
 
 			String sEncodeData = "2,2,3,1,2,3,1,1,1,";
-			String sSKEncode = "F85B2FA41C76DF4C8CA8D50EFE525D3D70709783E6C2689B";// Crypt.get3DESSecretKeyEncode();
-			String s3DesEncode = "8BEC1A3A165F44070B293238EC5381786C342FCE1D845970E7E7FC399B3AA361E7E7FC399B3AA361C027C9C085D7E3D3A80D20D8B44DA9C457EEE0A04F6B0DE572C0106183D3BE5A";// Crypt.get3DESEncode(
-			String s3DesDecode = Crypt.get3DESDecode(sSKEncode, s3DesEncode);
-			System.out.println("encode data = " + sEncodeData);
-			System.out.println("Secret key encode = " + sSKEncode);
-			System.out.println("3 DES Encode  = " + s3DesEncode);
-			System.out.println("3 DES Decode = " + s3DesDecode);
 
 			System.out.println("source = dd,md5=" + MD5("dd"));
 			String sEncryptByAES = Crypt.encryptByAES("hello world", "8dc532a4c96acbe0", "1292f260a52abdc4") ;
@@ -76,44 +105,41 @@ public class Crypt {
 	public Crypt() {
 	}
 
-	/**
-	 * 取得3DES 的 Secret key (然後取崆ecret key的Encode)
-	 * 
-	 * @return String Secret Key Encode
-	 */
-	public static String get3DESSecretKeyEncode() throws Exception {
 
-		KeyGenerator keygen = KeyGenerator.getInstance("DESede");
-		SecretKey deskey = keygen.generateKey();
-		System.out.println("3des secret key encode =" + asHex(deskey.getEncoded()));
-		return asHex(deskey.getEncoded());
-
-	}
 
 	/**
-	 * 取得3DES 的 Secret key (然後取崆ecret key的Encode)
 	 * 
-	 * @return String Secret Key Encode
+	 * @param sSecretKey  24 bytes
+	 * @param sData
+	 * @return Base64Encode
 	 */
-	public static String get3DESEncode(String sSecretKeyEncode, String sData) throws Exception {
-
-		SecretKeySpec kk = new SecretKeySpec(asByte(sSecretKeyEncode), "DESede");
-		Cipher c = Cipher.getInstance("DESede");
-		c.init(Cipher.ENCRYPT_MODE, kk);
-		byte[] cipherByte = c.doFinal(sData.getBytes());
-		System.out.println("3des value=" + asHex(cipherByte));
-		return asHex(cipherByte);
-
+	public static String Encrypt3DesCbcPKCS7Padding(String sSecretKey, String sData)  throws Exception{
+		IvParameterSpec ivSpec = new IvParameterSpec(sIV.getBytes());
+		Cipher encryptCipher  = Cipher.getInstance("DESede/CBC/PKCS7Padding","BC");
+		SecretKeySpec secretKeySpec = new SecretKeySpec(sSecretKey.getBytes(), "DESede");
+		encryptCipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, ivSpec);
+		
+		return Base64.getEncoder().encodeToString(encryptCipher.doFinal(sData.getBytes(StandardCharsets.UTF_8)));
 	}
-
-	public static String get3DESDecode(String sSecretKeyEncode, String s3DESEncode) throws Exception {
-
-		SecretKeySpec kk = new SecretKeySpec(asByte(sSecretKeyEncode), "DESede");
-		Cipher c1 = Cipher.getInstance("DESede");
-		c1.init(Cipher.DECRYPT_MODE, kk);
-		System.out.println("decode = " + new String(c1.doFinal(asByte(s3DESEncode))));
-		return new String(c1.doFinal(asByte(s3DESEncode)));
+	
+	/**
+	 * 
+	 * @param sSecretKey  24 bytes
+	 * @param sEncodeData
+	 * @return
+	 * @throws Exception
+	 */
+	public static String Decrypt3DesCbcPKCS7Padding(String sSecretKey, String sEncodeData)  throws Exception{
+		
+		IvParameterSpec ivSpec = new IvParameterSpec(sIV.getBytes());
+		Cipher decryptCipher  = Cipher.getInstance("DESede/CBC/PKCS7Padding","BC");
+		SecretKeySpec secretKeySpec = new SecretKeySpec(sSecretKey.getBytes(), "DESede");
+		decryptCipher.init(Cipher.DECRYPT_MODE, secretKeySpec, ivSpec);
+		
+		return  new String(decryptCipher.doFinal(Base64.getDecoder().decode(sEncodeData)),StandardCharsets.UTF_8);
+	   
 	}
+	
 
 	public static String DESEncode(String sEncodeKey, String sData) throws Exception {
 		// 生成密鑰

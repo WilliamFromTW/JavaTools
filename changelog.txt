@@ -3,6 +3,9 @@ v2.04
 1. MysqlConnection class for name changed  - 20240601 
 2. new JDBCConnection :  AccessConnection - 20240601
 3. new PostgresConnection class - 20240807
+3. Crypt refactoring - 20241227 
+need bcprov-jdk18on-1.79.jar 
+
 
 v2.04 - 20240430
 --

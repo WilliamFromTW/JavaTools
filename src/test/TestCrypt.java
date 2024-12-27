@@ -9,15 +9,14 @@ import inmethod.commons.util.Crypt;
 public class TestCrypt{
   public static void main(String a[]){
     try{
-      String sEncodeData = "data";
-      // 必須呼叫Crypt.get3DESSecretKeyEncode()取得密鑰,此密鑰可以解開加密的資料
-      String sSKEncode = Crypt.get3DESSecretKeyEncode();
+      String sData = "data";
+      String sSKEncode = "123456781234567812345678";
       // 將資料加密
-      String s3DesEncode =  Crypt.get3DESEncode( sSKEncode,sEncodeData);
+      String s3DesEncode =  Crypt.Encrypt3DesCbcPKCS7Padding( sSKEncode,sData);
       // 將加密的資料解密
-      String s3DesDecode = Crypt.get3DESDecode( sSKEncode, s3DesEncode);
+     String s3DesDecode = Crypt.Decrypt3DesCbcPKCS7Padding(  sSKEncode,s3DesEncode);
 
-      System.out.println("預備加密的資料 = " + sEncodeData );
+      System.out.println("預備加密的資料 = " + sData );
       System.out.println("加密的密碼 = " + sSKEncode);
 
       System.out.println( "經過3Des加密後的資料  = " + s3DesEncode);
